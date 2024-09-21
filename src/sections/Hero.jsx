@@ -7,6 +7,9 @@ import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants";
 import Target from "../components/Target";
 import ReactLogo from "../components/ReactLogo";
+import Cube from "../components/Cube";
+import Rings from "../components/Rings";
+import HeroCamera from "../components/HeroCamera";
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -30,18 +33,23 @@ const Hero = () => {
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-            <HackerRoom
-              //   scale={0.07}
-              //   position={[0, 0, 0]}
-              //   rotation={[0, 280, 0]}
-              position={sizes.deskPosition}
-              rotation={[0, -Math.PI, 0]}
-              scale={sizes.deskScale}
-            />
+
+            <HeroCamera isMobile = {isMobile}>
+              <HackerRoom
+                //   scale={0.07}
+                //   position={[0, 0, 0]}
+                //   rotation={[0, 280, 0]}
+                position={sizes.deskPosition}
+                rotation={[0, -Math.PI, 0]}
+                scale={sizes.deskScale}
+              />
+            </HeroCamera>
 
             <group>
               <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition}/>
+              <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} />
+              <Rings position={sizes.ringPosition} />
             </group>
 
             <ambientLight intensity={1} />
