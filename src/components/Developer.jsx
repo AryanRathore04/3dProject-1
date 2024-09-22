@@ -7,7 +7,7 @@ import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 
 const Developer = ({ animationName = "idle", ...props }) => {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/models/animations/Developer.glb");
+  const { nodes, materials } = useGLTF("/public/models/animations/Developer.glb");
 
   const { animations: idleAnimation } = useFBX("/models/animations/idle.fbx");
   const { animations: saluteAnimation } = useFBX(
