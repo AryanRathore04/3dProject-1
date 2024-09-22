@@ -1,0 +1,6 @@
+{
+    "rewrites": [
+      { "source": "/models/(.*)", "destination": "/public/models/$1" }
+    ]
+  }
+  
